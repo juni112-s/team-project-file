@@ -19,6 +19,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
+      debugShowCheckedModeBanner: false,
+      initialRoute: "",
       routes: {
         "/" :(context) => Team4(),
         "/kang" :(context) => KangPage(),
