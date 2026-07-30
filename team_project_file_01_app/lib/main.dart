@@ -4,7 +4,7 @@ import 'package:team_project_file_01_app/view/kim_da_eun/kim_page.dart';
 import 'package:team_project_file_01_app/view/lee_kyu_hyuk/lee_page.dart';
 import 'package:team_project_file_01_app/view/sung_ki_hyuk/sung_page.dart';
 import 'package:team_project_file_01_app/view/team4.dart';
-
+//gyjfdhgyt
 void main() {
   runApp(const MyApp());
 }
