@@ -82,6 +82,7 @@ class _FourPageState extends State<FourPage> {
                 onDoubleTap: () => resultStringController.text = "",
                 child: TextField(
                   readOnly: true,
+                  ignorePointers: true,
                   controller: resultStringController,
                   decoration: InputDecoration(
                     labelText: '결과는 여기에 표시됩니다.',
