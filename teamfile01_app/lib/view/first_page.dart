@@ -114,6 +114,7 @@ class _FirstPageState extends State<FirstPage> {
   addController.text = addResult.toString();
     
   resultString = "$num1 + $num2 = $addResult";
+  setState(() {});
 
   }
 
