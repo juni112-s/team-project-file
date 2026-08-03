@@ -57,12 +57,21 @@ class _FirstPageState extends State<FirstPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () => numbercalc(), 
+                  onPressed: () => numbercalc(),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                  ), 
                   child: Text('결과 확인'),
                 ),
                 SizedBox(width: 30,),
                 ElevatedButton(
                   onPressed: () => remove(), 
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.amber,
+                    foregroundColor: Colors.white,
+
+                  ),
                   child: Text('지우기'),
                 ),
               ],
