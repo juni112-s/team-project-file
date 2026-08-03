@@ -75,6 +75,7 @@ class _SecondPageState extends State<SecondPage> {
                   labelText: '뺄셈 결과',
                   border: OutlineInputBorder()
                 ),
+                readOnly: true,
               ),
             )
           ],
