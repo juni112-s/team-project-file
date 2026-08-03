@@ -97,8 +97,8 @@ class _FirstPageState extends State<FirstPage> {
                 fontWeight: FontWeight.bold,
                 color: Colors.red
               ),
-              
-              )
+              ),
+              Text("더하기 계산 결과값")
           ],
         ),
       ),
