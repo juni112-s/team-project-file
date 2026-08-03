@@ -10,15 +10,15 @@ class FourPage extends StatefulWidget {
 class _FourPageState extends State<FourPage> {
   ///입력을 받을 텍스트 에디팅 컨트롤러들
   late TextEditingController input1Controller, input2Controller;
-  ///출력값을 저장하는 문자열
-  late String resultString;
+  ///출력값을 보여주는 컨트롤러
+  late TextEditingController resultStringController;
 
   @override
   void initState() {
     super.initState();
     input1Controller = TextEditingController();
     input2Controller = TextEditingController();
-    resultString = '계산 대기중';
+    resultStringController = TextEditingController();
   }
 
   @override
@@ -75,11 +75,19 @@ class _FourPageState extends State<FourPage> {
               child: Text('계산 및 출력')
             ),
             SizedBox(height: 50),
-            Text(
-              resultString,
-              style: TextStyle(
-                fontWeight: .w900,
-                fontSize: 20
+            SizedBox(
+              width: 300,
+              height: 50,
+              child: GestureDetector(
+                onDoubleTap: () => resultStringController.text = "",
+                child: TextField(
+                  readOnly: true,
+                  controller: resultStringController,
+                  decoration: InputDecoration(
+                    labelText: '결과는 여기에 표시됩니다.',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
               ),
             ),
           ],
@@ -112,7 +120,7 @@ class _FourPageState extends State<FourPage> {
           );
         },
       );
-      resultString = '모든 칸에 숫자만을 입력하세요.';
+      resultStringController.text = '모든 칸에 숫자만을 입력하세요.';
     }else if(input2 == 0){
       showDialog(
         context: context, 
@@ -134,12 +142,12 @@ class _FourPageState extends State<FourPage> {
           );
         },
       );
-      resultString = '0으로 나눌 수 없습니다.';
+      resultStringController.text = '0으로 나눌 수 없습니다.';
     }else{
       var inputNumber1 = input1%1==0?input1.toInt():input1;
       var inputNumber2 = input2%1==0?input2.toInt():input2;
       var resultNumber = input1/input2%1==0?(input1/input2).toInt():input1/input2;
-      resultString = '$inputNumber1 ÷ $inputNumber2 = $resultNumber';
+      resultStringController.text = '$inputNumber1 ÷ $inputNumber2 = $resultNumber';
     }
     setState(() {});
   }
