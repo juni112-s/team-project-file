@@ -36,12 +36,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar를 지운 이유는 뒤에 페이지의 appBar 와 겹쳐나오기 떄문에 지워준다.
-      // appBar: AppBar(
-      //   title: Text('Tab Bar Test'),
-      // ),
+
       body: TabBarView(
-        //controller를 먼저 잡아 줘야한다.
         controller: controller,
         children: [
           FirstPage(),
@@ -50,17 +46,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
           FourPage(),
         ],
       ),
-      // 바텀 내비게이션 바는 컨테이너를 사용하여야 한다.
       bottomNavigationBar: Container(
         color: Colors.amber,
         height: 80,
-        // 여기까지가 컨테이너 환경을 만들어 줌
-        // 내용 삽입
         child: TabBar(
           controller: controller,
-          //선택된  페이지 색깔이 바뀜
           labelColor: Colors.blue,
-          //선택된 페이지 하단에 표시가 댐
           indicatorColor: Colors.red,
           indicatorWeight: 10,
           tabs: [
