@@ -11,6 +11,7 @@ class _FirstPageState extends State<FirstPage> {
   late TextEditingController num1Controller;  // 첫번째 숫자 입력창
   late TextEditingController num2Controller;  // 두번째 숫자 입력창
 
+  late String resultString;
   late TextEditingController addController;   // 덧셈 결과
   @override
   void initState() {
@@ -18,6 +19,7 @@ class _FirstPageState extends State<FirstPage> {
     num1Controller = TextEditingController();
     num2Controller = TextEditingController();    
     addController = TextEditingController();
+    resultString = "";
   }
   @override
   Widget build(BuildContext context) {
@@ -77,6 +79,15 @@ class _FirstPageState extends State<FirstPage> {
                   readOnly: true,
                 ),
             ),              
+            Text(
+              resultString,
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Colors.red
+              ),
+              
+              )
           ],
         ),
       ),
@@ -99,14 +110,17 @@ class _FirstPageState extends State<FirstPage> {
     void numbercheck(){
   int num1 = int.parse(num1Controller.text.trim());
   int num2 = int.parse(num2Controller.text.trim());
-  
   int addResult = num1 + num2;
+  addController.text = addResult.toString();
+    
+  resultString = "$num1 + $num2 = $addResult";
+  setState(() {});
 
-  addResult.toString();
+  }
 
-}
   
   void remove(){
       num1Controller.text = "";
-      }
+          }
+
 }
