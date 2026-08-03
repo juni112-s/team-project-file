@@ -78,12 +78,15 @@ class _FourPageState extends State<FourPage> {
             SizedBox(
               width: 300,
               height: 50,
-              child: TextField(
-                readOnly: true,
-                controller: resultStringController,
-                decoration: InputDecoration(
-                  labelText: '결과는 여기에 표시됩니다.',
-                  border: OutlineInputBorder(),
+              child: GestureDetector(
+                onDoubleTap: () => resultStringController.text = "",
+                child: TextField(
+                  readOnly: true,
+                  controller: resultStringController,
+                  decoration: InputDecoration(
+                    labelText: '결과는 여기에 표시됩니다.',
+                    border: OutlineInputBorder(),
+                  ),
                 ),
               ),
             ),
