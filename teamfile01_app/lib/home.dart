@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:teamfile01_app/view/first_page.dart';
+import 'package:teamfile01_app/view/four_page.dart';
+import 'package:teamfile01_app/view/second_page.dart';
+import 'package:teamfile01_app/view/third_page.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -40,6 +44,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
         //controller를 먼저 잡아 줘야한다.
         controller: controller,
         children: [
+          FirstPage(),
+          SecondPage(),
+          ThirdPage(),
+          FourPage(),
         ],
       ),
       // 바텀 내비게이션 바는 컨테이너를 사용하여야 한다.

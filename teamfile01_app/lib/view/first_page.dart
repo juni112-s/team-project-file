@@ -8,6 +8,16 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
+  late TextEditingController num1Controller;  // 첫번째 숫자 입력창
+  late TextEditingController num2Controller;  // 두번째 숫자 입력창
+
+  late TextEditingController addController;   // 덧셈 결과
+  @override
+  void initState() {
+    super.initState();
+    num1Controller = TextEditingController();
+    num2Controller = TextEditingController();    
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
