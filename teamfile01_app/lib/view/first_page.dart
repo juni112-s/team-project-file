@@ -61,6 +61,7 @@ class _FirstPageState extends State<FirstPage> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     foregroundColor: Colors.white,
+                    shape: BeveledRectangleBorder()
                   ), 
                   child: Text('결과 확인'),
                 ),
@@ -70,6 +71,7 @@ class _FirstPageState extends State<FirstPage> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.amber,
                     foregroundColor: Colors.white,
+                    shape:BeveledRectangleBorder()
 
                   ),
                   child: Text('지우기'),
