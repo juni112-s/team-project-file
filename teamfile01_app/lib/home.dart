@@ -20,7 +20,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
   void initState() {
     super.initState();
     // tabcontroller 페이지 개수 와 위치를 정해줘야한다.
-    controller = TabController(length: 2, vsync: this);
+    controller = TabController(length: 4, vsync: this);
   }
 
 
