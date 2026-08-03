@@ -17,6 +17,7 @@ class _FirstPageState extends State<FirstPage> {
     super.initState();
     num1Controller = TextEditingController();
     num2Controller = TextEditingController();    
+    addController = TextEditingController();
   }
   @override
   Widget build(BuildContext context) {
@@ -25,8 +26,87 @@ class _FirstPageState extends State<FirstPage> {
         title: Text('First Page'),
       ),
       body: Center(
-        child: Text('첫번째 페이지'),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: num1Controller,
+                decoration: InputDecoration(
+                  labelText: '숫자를 입력하세요',
+                  border: OutlineInputBorder()
+                ),
+                keyboardType: TextInputType.number,
+              ),
+            ),            
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: num2Controller,
+                decoration: InputDecoration(
+                  labelText: '숫자를 입력하세요',
+                  border: OutlineInputBorder()
+                ),
+                keyboardType: TextInputType.number,
+              ),
+            ),     
+            SizedBox(height: 50,),  
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () => numbercalc(), 
+                  child: Text('결과 확인'),
+                ),
+                SizedBox(width: 30,),
+                ElevatedButton(
+                  onPressed: () => remove(), 
+                  child: Text('지우기'),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: TextField(
+                  controller: addController,
+                  decoration: InputDecoration(
+                    labelText: "덧셈 결과",
+                    border: OutlineInputBorder()
+                  ),
+                  keyboardType: TextInputType.text,
+                  readOnly: true,
+                ),
+            ),              
+          ],
+        ),
       ),
     );
   }
+    void numbercalc(){
+    if(num1Controller.text.trim().isNotEmpty && num2Controller.text.trim().isNotEmpty){
+    numbercheck();
+    }else{
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('숫자를 입력하세요'),
+        duration: Duration(seconds: 2),
+        backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
+
+    void numbercheck(){
+  int num1 = int.parse(num1Controller.text.trim());
+  int num2 = int.parse(num2Controller.text.trim());
+  
+  int addResult = num1 + num2;
+
+  addResult.toString();
+
+}
+  
+  void remove(){
+      num1Controller.text = "";
+      }
 }
